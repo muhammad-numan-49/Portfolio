@@ -23,7 +23,7 @@ const projects: Project[] = [
     impact: 'Improved clarity of value proposition and user onboarding for HR teams, helping make employee well-being data easier to act on.',
     liveUrl: 'https://www.edufeel.co.uk/',
     githubUrl: '#',
-    image: '/projects/feelhq.jpg'
+    image: '/projects/feelhq.png'
   },
   {
     title: 'Coach Poker Online – Coaching Marketplace',
@@ -33,7 +33,7 @@ const projects: Project[] = [
     impact: 'Designed for higher coach discovery and lesson booking conversion with clear entry points into coaching categories.',
     liveUrl: 'https://www.coachpokeronline.com/',
     githubUrl: '#',
-    image: '/projects/coachpoker.jpg'
+    image: '/projects/coachpoker.png'
   },
   {
     title: 'BudgetMe – Personal Finance Companion',
@@ -43,7 +43,7 @@ const projects: Project[] = [
     impact: 'Crafted an approachable, trustworthy visual language that supports user sign-ups and product education.',
     liveUrl: 'https://budgetme.co.nz/',
     githubUrl: '#',
-    image: '/projects/budgetme.jpg'
+    image: '/projects/budgetme.png'
   },
   {
     title: 'Kindly – Well-being Mobile App Landing',
@@ -53,7 +53,7 @@ const projects: Project[] = [
     impact: 'Mobile-first landing that highlights the app’s core benefits and nudges visitors toward downloads and engagement.',
     liveUrl: 'https://thekindlyapp.com/',
     githubUrl: '#',
-    image: '/projects/kindly.jpg'
+    image: '/projects/kindly.png'
   }
 ];
 
@@ -65,7 +65,7 @@ export function Projects() {
       title="Case studies for real-world products."
       description="A sample of the React and Next.js work I do for product teams — focused on performance, clarity, and measurable business outcomes."
     >
-      <div className="space-y-8">
+      <div className="space-y-9 md:space-y-10">
         {projects.map((project, index) => (
           <motion.article
             key={project.title}
@@ -76,7 +76,7 @@ export function Projects() {
             className="group glass-panel rounded-2xl overflow-hidden"
           >
             <div className="grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.2fr)] gap-0 md:gap-6">
-              <div className="relative h-48 sm:h-56 md:h-full overflow-hidden">
+              <div className="relative h-52 sm:h-60 md:h-full overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -93,24 +93,24 @@ export function Projects() {
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">{project.description}</p>
                   <p className="mt-3 text-[11px] sm:text-xs text-emerald-300/90">{project.impact}</p>
-                  <div className="mt-3 flex flex-wrap gap-1.5">
+                  <div className="mt-4 flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="inline-flex rounded-full bg-slate-900/70 px-2 py-1 text-[11px] text-slate-200 border border-slate-700/60"
+                        className="inline-flex rounded-full bg-slate-900/80 px-2.5 py-1.5 text-[11px] sm:text-xs text-slate-200 border border-slate-700/70 min-h-[32px]"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="mt-4 flex flex-wrap gap-4 text-xs text-slate-300">
+                <div className="mt-5 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 text-xs text-slate-300">
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="hover:text-emerald-300 transition"
+                      className="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-emerald-400/70 bg-emerald-500/10 px-4 py-2.5 text-xs font-medium text-emerald-200 shadow-sm shadow-emerald-500/20 hover:bg-emerald-500/20 hover:border-emerald-300 transition min-h-[44px]"
                     >
                       Live demo
                     </a>
@@ -120,7 +120,7 @@ export function Projects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="hover:text-emerald-300 transition"
+                      className="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-slate-600 bg-slate-900/60 px-4 py-2.5 text-xs font-medium text-slate-200 shadow-sm shadow-slate-900/40 hover:bg-slate-800/80 transition min-h-[44px]"
                     >
                       GitHub
                     </a>

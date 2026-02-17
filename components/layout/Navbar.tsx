@@ -40,7 +40,10 @@ export function Navbar() {
         }`}
       >
         <div className="container-page flex items-center justify-between py-3 sm:py-4">
-          <Link href="#top" className="font-semibold tracking-tight text-slate-50 text-sm sm:text-base">
+          <Link
+            href="#top"
+            className="font-semibold tracking-tight text-slate-50 text-sm sm:text-base"
+          >
             Muhammad <span className="text-accent">Numan</span>
           </Link>
 
@@ -55,53 +58,87 @@ export function Navbar() {
             </Button>
           </div>
 
-          <button
+          <motion.button
             type="button"
-            className="md:hidden inline-flex items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/60 p-2 text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ backgroundColor: 'rgba(15,23,42,0.85)' }}
+            className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/70 text-slate-200 shadow-lg shadow-slate-900/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
             onClick={() => setIsOpen((open) => !open)}
           >
             <span className="sr-only">Toggle navigation</span>
-            <motion.span
-              animate={isOpen ? { rotate: 45, y: 3 } : { rotate: 0, y: 0 }}
-              className="block h-0.5 w-4 bg-slate-200"
-            />
-            <motion.span
-              animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="mt-1 block h-0.5 w-4 bg-slate-400"
-            />
-            <motion.span
-              animate={isOpen ? { rotate: -45, y: -3 } : { rotate: 0, y: 0 }}
-              className="mt-1 block h-0.5 w-4 bg-slate-200"
-            />
-          </button>
+            <span className="relative flex h-5 w-5 flex-col items-center justify-between">
+              <motion.span
+                animate={
+                  isOpen
+                    ? { rotate: 45, y: 6, backgroundColor: 'rgb(248,250,252)' }
+                    : { rotate: 0, y: 0, backgroundColor: 'rgb(226,232,240)' }
+                }
+                transition={{ duration: 0.22, ease: 'easeOut' }}
+                className="block h-0.5 w-full rounded-full bg-slate-200"
+              />
+              <motion.span
+                animate={
+                  isOpen
+                    ? { opacity: 0, scaleX: 0.6 }
+                    : { opacity: 1, scaleX: 1 }
+                }
+                transition={{ duration: 0.18, ease: 'easeOut' }}
+                className="block h-0.5 w-[70%] rounded-full bg-slate-500"
+              />
+              <motion.span
+                animate={
+                  isOpen
+                    ? { rotate: -45, y: -6, backgroundColor: 'rgb(248,250,252)' }
+                    : { rotate: 0, y: 0, backgroundColor: 'rgb(226,232,240)' }
+                }
+                transition={{ duration: 0.22, ease: 'easeOut' }}
+                className="block h-0.5 w-full rounded-full bg-slate-200"
+              />
+            </span>
+          </motion.button>
         </div>
 
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.18 }}
-              className="md:hidden border-t border-slate-800/60 bg-slate-950/95 backdrop-blur-xl"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-30 md:hidden bg-slate-950/60 backdrop-blur-md"
+              onClick={() => setIsOpen(false)}
             >
-              <div className="container-page py-3 flex flex-col gap-2 text-sm text-slate-200">
-                {navItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    onClick={handleNavClick}
-                    className="py-1.5"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-                <div className="pt-2">
-                  <Button href="#contact" className="w-full justify-center">
-                    Hire Me
-                  </Button>
+              <motion.div
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'spring', stiffness: 260, damping: 28 }}
+                className="absolute inset-y-0 right-0 w-[82%] max-w-xs glass-panel border-l border-slate-800/70 bg-slate-950/95 shadow-[0_0_60px_rgba(15,23,42,0.9)]"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="h-full flex flex-col justify-between py-6 px-5">
+                  <div className="space-y-4 text-sm text-slate-200">
+                    {navItems.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        onClick={handleNavClick}
+                        className="flex items-center justify-between rounded-xl bg-slate-900/60 px-3 py-3 text-sm font-medium text-slate-100 shadow-sm shadow-slate-900/60 hover:bg-slate-800/80 transition-colors"
+                      >
+                        <span>{item.label}</span>
+                        <span className="text-[10px] uppercase tracking-[0.18em] text-slate-500">
+                          Go
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                  <div className="pt-4 border-t border-slate-800/60">
+                    <Button href="#contact" className="w-full justify-center min-h-[48px]">
+                      Hire Me
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>

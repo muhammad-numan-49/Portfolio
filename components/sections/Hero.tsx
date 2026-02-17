@@ -13,7 +13,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="flex-1"
+          className="flex-1 max-w-xl w-full mx-auto lg:mx-0"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400 mb-2">
             Senior Front-End Developer · React &amp; Next.js
@@ -21,7 +21,7 @@ export function Hero() {
           <p className="text-[11px] text-slate-400 mb-4">
             Based in Lahore, Pakistan · 4+ years experience
           </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-50 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-50 tracking-tight leading-snug sm:leading-tight">
             I help startups and product teams ship <span className="text-accent">fast, scalable</span> React
             &amp; Next.js products that drive real business results.
           </h1>
@@ -31,14 +31,20 @@ export function Hero() {
             the same: faster load times, cleaner UX, and frontends that are easy to evolve as you grow.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
-            <Button href="#contact">Hire Me</Button>
-            <Button variant="secondary" href="#projects">
+          <div className="mt-8 flex w-full flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
+            <Button href="#contact" className="w-full sm:w-auto justify-center min-h-[48px]">
+              Hire Me
+            </Button>
+            <Button
+              variant="secondary"
+              href="#projects"
+              className="w-full sm:w-auto justify-center min-h-[48px]"
+            >
               View Case Studies
             </Button>
           </div>
 
-          <div className="mt-5 flex flex-wrap items-center gap-4 text-[11px] sm:text-xs text-slate-300">
+          <div className="mt-6 flex flex-wrap items-center gap-3 sm:gap-4 text-[11px] sm:text-xs text-slate-300">
             <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 border border-emerald-400/40 text-emerald-200">
               <span className="mr-1.5 h-1.5 w-1.5 rounded-full bg-emerald-400" />
               Available for new projects
@@ -48,7 +54,7 @@ export function Hero() {
             <span>React &amp; Next.js Specialist</span>
           </div>
 
-          <div className="mt-6 flex items-center gap-5 text-xs text-slate-400">
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-xs text-slate-400">
             <a href={siteConfig.links.github} target="_blank" rel="noreferrer" className="hover:text-slate-200">
               GitHub
             </a>
@@ -72,9 +78,9 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
-          className="flex-1 flex justify-center lg:justify-end"
+          className="flex-1 flex justify-center lg:justify-end mt-8 lg:mt-0"
         >
-          <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 glass-panel rounded-3xl overflow-hidden">
+          <div className="relative w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 glass-panel rounded-3xl overflow-hidden shadow-2xl shadow-slate-950/80">
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/40 via-transparent to-emerald-500/30" />
             <Image
               src="/profile.jpg"
