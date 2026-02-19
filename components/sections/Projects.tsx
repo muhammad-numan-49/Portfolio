@@ -24,7 +24,7 @@ const projects: Project[] = [
       "Improved clarity of value proposition and user onboarding for HR teams, helping make employee well-being data easier to act on.",
     liveUrl: "https://www.edufeel.co.uk/",
     githubUrl: "https://github.com/muhammad-numan-49",
-    image: "/projects/feelhq.png",
+    image: "/feelhq.png",
   },
   {
     title: "Coach Poker Online – Coaching Marketplace",
@@ -35,7 +35,7 @@ const projects: Project[] = [
       "Designed for higher coach discovery and lesson booking conversion with clear entry points into coaching categories.",
     liveUrl: "https://www.coachpokeronline.com/",
     githubUrl: "https://github.com/muhammad-numan-49",
-    image: "/projects/coachpoker.png",
+    image: "/coachpoker.png",
   },
   {
     title: "BudgetMe – Personal Finance Companion",
@@ -46,7 +46,7 @@ const projects: Project[] = [
       "Crafted an approachable, trustworthy visual language that supports user sign-ups and product education.",
     liveUrl: "https://budgetme.co.nz/",
     githubUrl: "https://github.com/muhammad-numan-49",
-    image: "/projects/budgetme.png",
+    image: "/budgetme.png",
   },
   {
     title: "Kindly – Well-being Mobile App Landing",
@@ -57,7 +57,7 @@ const projects: Project[] = [
       "Mobile-first landing that highlights the app’s core benefits and nudges visitors toward downloads and engagement.",
     liveUrl: "https://thekindlyapp.com/",
     githubUrl: "https://github.com/muhammad-numan-49",
-    image: "/projects/kindly.png",
+    image: "/kindly.png",
   },
 ];
 

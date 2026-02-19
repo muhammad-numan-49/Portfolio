@@ -55,6 +55,7 @@ export function Contact() {
       if (!response.ok) throw new Error('Formspree submission failed');
 
       form.reset(); // remove/clear fields
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
       setModal('success');
     } catch {
       setModal('error');
