@@ -21,7 +21,7 @@ const experience: ExperienceItem[] = [
   {
     company: 'Techify · Faisal Town, Lahore',
     role: 'Front-End Developer',
-    duration: 'May 2021 — February 2022',
+    duration: 'May 2020 — February 2022',
     summary:
       'Built and maintained 8+ responsive React applications serving 5,000+ daily active users, implementing robust REST API integrations, complex state management with Redux and Context API, and mobile-first UI that contributed to reliable, on-time delivery in an agile environment.'
   }
