@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 import { Button } from '../ui/Button';
-
 const navItems = [
   { href: '#about', label: 'About' },
   { href: '#projects', label: 'Projects' },
@@ -24,6 +24,17 @@ export function Navbar() {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   const handleNavClick = () => {
     setIsOpen(false);
@@ -60,90 +71,93 @@ export function Navbar() {
 
           <motion.button
             type="button"
-            whileTap={{ scale: 0.95 }}
-            whileHover={{ backgroundColor: 'rgba(15,23,42,0.85)' }}
-            className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/70 text-slate-200 shadow-lg shadow-slate-900/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+            whileTap={{ scale: 0.92 }}
+            whileHover={{ scale: 1.02 }}
+            className="md:hidden inline-flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-slate-700/70 bg-slate-900/70 text-slate-200 shadow-lg shadow-slate-900/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:bg-slate-800/80 transition-colors"
             onClick={() => setIsOpen((open) => !open)}
           >
-            <span className="sr-only">Toggle navigation</span>
-            <span className="relative flex h-5 w-5 flex-col items-center justify-between">
-              <motion.span
-                animate={
-                  isOpen
-                    ? { rotate: 45, y: 6, backgroundColor: 'rgb(248,250,252)' }
-                    : { rotate: 0, y: 0, backgroundColor: 'rgb(226,232,240)' }
-                }
-                transition={{ duration: 0.22, ease: 'easeOut' }}
-                className="block h-0.5 w-full rounded-full bg-slate-200"
-              />
-              <motion.span
-                animate={
-                  isOpen
-                    ? { opacity: 0, scaleX: 0.6 }
-                    : { opacity: 1, scaleX: 1 }
-                }
-                transition={{ duration: 0.18, ease: 'easeOut' }}
-                className="block h-0.5 w-[70%] rounded-full bg-slate-500"
-              />
-              <motion.span
-                animate={
-                  isOpen
-                    ? { rotate: -45, y: -6, backgroundColor: 'rgb(248,250,252)' }
-                    : { rotate: 0, y: 0, backgroundColor: 'rgb(226,232,240)' }
-                }
-                transition={{ duration: 0.22, ease: 'easeOut' }}
-                className="block h-0.5 w-full rounded-full bg-slate-200"
-              />
-            </span>
+            <AnimatePresence mode="wait">
+              {isOpen ? (
+                <motion.span
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                >
+                  <X className="h-5 w-5" strokeWidth={2} />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                >
+                  <Menu className="h-5 w-5" strokeWidth={2} />
+                </motion.span>
+              )}
+            </AnimatePresence>
           </motion.button>
         </div>
 
         <AnimatePresence>
           {isOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-30 md:hidden bg-slate-950/60 backdrop-blur-md"
-              onClick={() => setIsOpen(false)}
-            >
+            <>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="fixed inset-0 z-40 md:hidden bg-slate-950/75 backdrop-blur-md"
+                onClick={() => setIsOpen(false)}
+                aria-hidden
+              />
               <motion.div
                 initial={{ x: '100%' }}
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
-                transition={{ type: 'spring', stiffness: 260, damping: 28 }}
-                className="absolute inset-y-0 right-0 w-[82%] max-w-xs glass-panel border-l border-slate-800/70 bg-slate-950/95 shadow-[0_0_60px_rgba(15,23,42,0.9)]"
+                transition={{ type: 'spring', stiffness: 320, damping: 32 }}
+                className="fixed inset-y-0 right-0 z-50 w-[85%] max-w-sm md:hidden border-l border-slate-800/80 bg-slate-950/98 shadow-[0_0_80px_rgba(0,0,0,0.6)] backdrop-blur-xl"
                 onClick={(e) => e.stopPropagation()}
+                role="dialog"
+                aria-modal="true"
+                aria-label="Navigation menu"
               >
-                <div className="h-full flex flex-col justify-between py-6 px-5">
-                  <div className="space-y-4 text-sm text-slate-200">
-                    {navItems.map((item) => (
-                      <a
+                <div className="h-full flex flex-col pt-8 pb-6 px-5">
+                  <div className="space-y-1">
+                    {navItems.map((item, i) => (
+                      <motion.a
                         key={item.href}
                         href={item.href}
                         onClick={handleNavClick}
-                        className="flex items-center justify-between rounded-xl bg-slate-900/60 px-3 py-3 text-sm font-medium text-slate-100 shadow-sm shadow-slate-900/60 hover:bg-slate-800/80 transition-colors"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.05 * i, duration: 0.2 }}
+                        className="flex items-center min-h-[44px] px-4 py-3 rounded-xl text-slate-200 font-medium text-sm hover:bg-slate-800/70 hover:text-slate-50 active:bg-slate-800 transition-colors"
                       >
-                        <span>{item.label}</span>
-                        <span className="text-[10px] uppercase tracking-[0.18em] text-slate-500">
-                          Go
-                        </span>
-                      </a>
+                        {item.label}
+                      </motion.a>
                     ))}
                   </div>
-                  <div className="pt-4 border-t border-slate-800/60">
-                    <Button href="#contact" className="w-full justify-center min-h-[48px]">
+                  <div className="mt-auto pt-6 border-t border-slate-800/70">
+                    <Link
+                      href="#contact"
+                      onClick={handleNavClick}
+                      className="inline-flex w-full items-center justify-center min-h-[48px] rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-white shadow-lg shadow-accent/30 hover:bg-accent-soft transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                    >
                       Hire Me
-                    </Button>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
-            </motion.div>
+            </>
           )}
         </AnimatePresence>
       </motion.nav>
     </header>
   );
 }
-

@@ -9,7 +9,7 @@ export function About() {
       id="about"
       eyebrow="About"
       title="Senior React & Next.js developer focused on scalable, production-grade frontends."
-      description="With 4+ years of hands-on experience, I specialize in building complex, high-performing web applications in the React ecosystem — from architecture and state management to performance and DX."
+      description="With 5+ years of hands-on experience, I specialize in building complex, high-performing web applications in the React ecosystem — from architecture and state management to performance and DX."
     >
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -20,7 +20,7 @@ export function About() {
       >
         <p>
           I&apos;m a senior front-end developer with a strong focus on the React.js ecosystem — React,
-          Next.js, TypeScript, and modern state management patterns. Over the last 4+ years I&apos;ve
+          Next.js, TypeScript, and modern state management patterns. Over the last 5+ years I&apos;ve
           architected and delivered enterprise-level applications that serve thousands of users, while
           keeping performance, accessibility, and maintainability front and center.
         </p>

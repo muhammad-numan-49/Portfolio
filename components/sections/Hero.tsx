@@ -8,18 +8,18 @@ import { siteConfig } from '../../lib/site-config';
 export function Hero() {
   return (
     <section className="pt-20 sm:pt-28 pb-16 sm:pb-24">
-      <div className="container-page flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+      <div className="container-page flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="flex-1 max-w-xl w-full mx-auto lg:mx-0"
+          className="flex-1 max-w-xl w-full mx-auto lg:mx-0 order-2 lg:order-1"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400 mb-2">
             Senior Front-End Developer · React &amp; Next.js
           </p>
           <p className="text-[11px] text-slate-400 mb-4">
-            Based in Lahore, Pakistan · 4+ years experience
+            Based in Lahore, Pakistan · 5+ years experience
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-50 tracking-tight leading-snug sm:leading-tight">
             I help startups and product teams ship <span className="text-accent">fast, scalable</span> React
@@ -49,7 +49,7 @@ export function Hero() {
               <span className="mr-1.5 h-1.5 w-1.5 rounded-full bg-emerald-400" />
               Available for new projects
             </span>
-            <span>4+ Years Experience</span>
+            <span>5+ Years Experience</span>
             <span>20+ Projects Delivered</span>
             <span>React &amp; Next.js Specialist</span>
           </div>
@@ -78,16 +78,16 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
-          className="flex-1 flex justify-center lg:justify-end mt-8 lg:mt-0"
+          className="flex-1 flex justify-center lg:justify-end order-1 lg:order-2 w-full max-w-[200px] sm:max-w-[220px] lg:max-w-[260px] mx-auto lg:mx-0"
         >
-          <div className="relative w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 glass-panel rounded-3xl overflow-hidden shadow-2xl shadow-slate-950/80">
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/40 via-transparent to-emerald-500/30" />
+          <div className="relative w-full aspect-square max-w-[200px] sm:max-w-[220px] lg:max-w-[260px] rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-700/60 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.05)_inset]">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-slate-500/10 z-[1]" aria-hidden />
             <Image
               src="/profile.jpg"
               alt="Portrait of Muhammad Numan"
               fill
-              className="object-cover object-center relative z-10"
-              sizes="(min-width: 1024px) 256px, (min-width: 640px) 224px, 192px"
+              className="object-cover object-[45%_20%] sm:object-[45%_25%] relative z-0"
+              sizes="(min-width: 1024px) 260px, (min-width: 640px) 220px, 200px"
               priority
             />
           </div>

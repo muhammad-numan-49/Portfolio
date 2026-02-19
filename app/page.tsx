@@ -18,7 +18,7 @@ export default function HomePage() {
       <Experience />
       <TestimonialSlider />
       <Contact />
-      <footer className="pb-10 pt-8 text-xs text-center text-slate-500">
+      <footer className="pb-12 pt-10 text-xs text-center text-slate-500 border-t border-slate-800/50">
         <div className="container-page">
           <span>© {new Date().getFullYear()} Senior Frontend Engineer · React &amp; Next.js</span>
         </div>

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`
   },
   description: siteConfig.description,
+  robots: { index: true, follow: true },
   openGraph: {
     type: 'website',
     url: siteConfig.baseUrl,
@@ -38,7 +39,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" className="dark">
       <body className="bg-background text-foreground">
         <div id="top" className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 relative">
-          <div className="pointer-events-none absolute inset-0 bg-radial-faded opacity-60" />
+          <div className="pointer-events-none absolute inset-0 bg-radial-faded" />
+          <div className="pointer-events-none absolute inset-0 bg-radial-faded-bottom opacity-70" />
           <Navbar />
           <div className="relative z-10 pt-16 sm:pt-20">{children}</div>
         </div>

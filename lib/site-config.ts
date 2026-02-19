@@ -8,6 +8,7 @@ export const siteConfig = {
     linkedin: 'https://www.linkedin.com/in/muhammad-numan-b34633227/',
     upwork: '#' // Upwork profile coming soon
   },
-  contactEmail: 'muhammadnuman049@gmail.com'
+  contactEmail: 'muhammadnuman049@gmail.com',
+  formspreeFormId: 'xgolzbpv'
 };
 

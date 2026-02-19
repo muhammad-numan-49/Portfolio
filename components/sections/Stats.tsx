@@ -6,7 +6,7 @@ import { Section } from '../layout/Section';
 const stats = [
   {
     label: 'Years of experience',
-    value: '4+',
+    value: '5+',
     detail: 'Senior-level React & Next.js focus'
   },
   {

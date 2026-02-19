@@ -26,3 +26,9 @@ body {
   @apply bg-slate-950/80 border-b border-slate-800/60 backdrop-blur-xl shadow-[0_12px_40px_rgba(15,23,42,0.9)];
 }
 
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+

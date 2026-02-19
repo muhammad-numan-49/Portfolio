@@ -13,20 +13,23 @@ const config: Config = {
         foreground: '#e5e7eb',
         accent: {
           DEFAULT: '#6366f1',
-          soft: '#4f46e5'
+          soft: '#5b21b6'
         },
         muted: '#1e293b',
         border: '#1f2933'
       },
       boxShadow: {
-        glass: '0 18px 60px rgba(15,23,42,0.85)'
+        glass: '0 18px 60px rgba(15,23,42,0.85)',
+        'soft-xl': '0 25px 50px -12px rgba(0,0,0,0.5)'
       },
       borderRadius: {
         xl: '1.25rem'
       },
       backgroundImage: {
         'radial-faded':
-          'radial-gradient(circle at top, rgba(79,70,229,0.35), transparent 60%)'
+          'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(99,102,241,0.18), transparent 55%)',
+        'radial-faded-bottom':
+          'radial-gradient(ellipse 70% 40% at 50% 100%, rgba(30,41,59,0.4), transparent 50%)'
       }
     }
   },

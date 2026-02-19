@@ -13,7 +13,7 @@ type SectionProps = {
 
 export function Section({ id, eyebrow, title, description, children }: SectionProps) {
   return (
-    <section id={id} className="py-16 sm:py-20 scroll-mt-24">
+    <section id={id} className="py-16 sm:py-20 lg:py-24 scroll-mt-28">
       <div className="container-page">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -27,14 +27,16 @@ export function Section({ id, eyebrow, title, description, children }: SectionPr
               {eyebrow}
             </p>
           )}
-          <h2 className="text-2xl sm:text-3xl font-semibold text-slate-50">{title}</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-[2rem] font-semibold tracking-tight text-slate-50">
+            {title}
+          </h2>
           {description && (
             <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
               {description}
             </p>
           )}
         </motion.div>
-        <div className="mt-10">{children}</div>
+        <div className="mt-12">{children}</div>
       </div>
     </section>
   );

@@ -50,7 +50,7 @@ export function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.45, ease: 'easeOut', delay: index * 0.08 }}
-            className="glass-panel rounded-2xl p-5 sm:p-6 flex flex-col justify-between"
+            className="glass-panel rounded-2xl p-5 sm:p-6 flex flex-col justify-between border border-slate-700/50 bg-slate-900/50"
           >
             <blockquote className="text-xs sm:text-sm text-slate-200 leading-relaxed">
               “{testimonial.quote}”

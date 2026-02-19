@@ -59,7 +59,7 @@ export function TestimonialSlider() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -24 }}
               transition={{ duration: 0.35, ease: 'easeOut' }}
-              className="glass-panel rounded-3xl p-6 sm:p-8 h-full flex flex-col justify-between"
+              className="glass-panel rounded-3xl p-6 sm:p-8 h-full flex flex-col justify-between border border-slate-700/50 bg-slate-900/50"
             >
               <blockquote className="text-sm sm:text-base text-slate-100 leading-relaxed">
                 “{current.quote}”
